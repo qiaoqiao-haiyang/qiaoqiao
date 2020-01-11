@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //自定义对象 内置对象 DOM
+    var dog = {
+        name:'旺财',
+        age:10,
+        eat:function(){
+            console.log(dog.name+"正在吃。。。。。")
+        }
+    }
+    dog.hight = '1m';
+    //console.log(dog);
+    //dog.eat()
+    
+    var obj = new Object();
+    obj.name='Zhangsan';
+    obj.age = 20;
+   // console.log(obj)
+
+    //console.log(dog.age);
+    for(key in dog){
+        //console.log(key)
+        //动态获取key属性  key中的name age及方法
+        console.log(dog[key])
+    }
+    
+    
+    
+    </script>
+</body>
+</html>
