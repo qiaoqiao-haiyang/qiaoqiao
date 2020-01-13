@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "btn">click</button>
+    <script>
+    //定时器 setInterval每隔11秒 执行回调函数，输出随机数
+
+    //法1
+    
+    //   var timer = setInterval(function(){
+    //      console.log(Math.random())
+    //  },1000)
+
+    //  var oBtn = document.getElementById("btn");
+    //  oBtn.onclick = function(){
+    //      clearInterval(timer);
+    //  }
+    
+    //法2
+    
+     var timer1 = setTimeout(function(){
+         console.log(Math.random());
+     },1000)
+     clearTimeout(timer1)
+    
+    
+    
+    </script>
+</body>
+</html>
