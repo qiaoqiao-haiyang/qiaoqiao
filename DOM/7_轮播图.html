@@ -16,7 +16,7 @@
         }
     #container{
         width: 740px;
-        margin: 50 auto;
+        margin: 50px auto;
         position: relative;
         background: red;
     }    
@@ -36,6 +36,7 @@
             height: 20px;
             background-color: rgba(0,0,0,0.5);
             color:#fff;
+            margin-right: 5px;
             text-align: center;
             line-height: 20px;
             border-radius: 5px;
@@ -101,49 +102,78 @@
             <li>5</li>
         </ul>
         <ul class="arrow-box">
-            <li>&lt;</li>
+            <li id ="prev-btn">&lt;</li>
             <li id="next-btn">&gt;</li>
         </ul>
     </div>
 
     <script>
+    
     var btnBox = document.getElementsByClassName("btn-box")[0]
     var aBtn = btnBox.getElementsByTagName("li")
     var imgBox = document.getElementsByClassName("img-box")[0]
     var aImg = imgBox.getElementsByTagName("li")
     var oNext = document.getElementById('next-btn');
     var iNow = 0;
+    var oPrev = document.getElementById("prev-btn");
+    var iNow = 0;
+    var oCntainer = document.getElementById("container")
 
 
     for(var i=0;i<aBtn.length;i++){
         aBtn[i].index = i
         aBtn[i].onclick = function(){
-            for(var j=0;j<aBtn.length;j++){
-                aBtn[j].className="";
-                aImg[j].className="";
-            }
-            this.className = "active";
-            aImg[this.index].className = "selected";
+            // for(var j=0;j<aBtn.length;j++){
+            //     aBtn[j].className="";
+            //     aImg[j].className="";
+            // }
+            // this.className = "active";
+            // aImg[this.index].className = "selected";
+            change(this.index)
+            iNow = this.index;
         }
     }
-
-
 
     oNext.onclick = function(){
         iNow++;
         if(iNow>aBtn.length-1){
             iNow=0;
         }
+        change(iNow)
+    }
+
+
+    oPrev.onclick = function(){
+        iNow--;
+        if(iNow < 0){
+            iNow = aBtn.length-1
+        }
+        change(iNow)
+    }
+
+    function change(idx){
         for(var i=0;i<aBtn.length;i++){
             aBtn[i].className=""
             aImg[i].className=""
         }
-        aBtn[iNow].className = "active";
-        aImg[iNow].className = "selected"
+        aBtn[idx].className = "active";
+        aImg[idx].className = "selected";
+
     }
-    
-   
-    
+
+    var timer = setInterval(function(){
+        oNext.onclick();
+    },2000)
+
+    oCntainer.onmouseover = function(){
+        clearInterval(timer)
+    }
+    oCntainer.onmouseout = function(){
+        timer = setInterval(function(){
+            oNext.onclick()
+        },2000)
+    }
+
     </script>
 
 </body>
