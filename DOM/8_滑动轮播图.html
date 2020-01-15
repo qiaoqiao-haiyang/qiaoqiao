@@ -100,22 +100,53 @@
         </ul>
     </div>
     <script>
-    var btnBox = document.getElementsByClassName("btn-box")[0];
-    var aBtn = btnBox.getElementsByTagName("li");
-    var oImgBox = document.getElementsByClassName("img-box")[0];
-    
+     var btnBox = document.getElementsByClassName("btn-box")[0];
+        var aBtn = btnBox.getElementsByTagName("li");
+        var oImgBox = document.getElementsByClassName("img-box")[0];
+        var oNext = document.getElementById('next-btn');
+        var iNow = 0;
+        var oPrev = document.getElementById("prev-btn")
+        var iNow = 0;
 
+        /*
+            索引0   1   2     n    
+               0    1   -2    -n个图片的宽度 
+        */ 
+        for(var i=0; i<aBtn.length; i++){
+            aBtn[i].index = i;
+            aBtn[i].onclick = function(){
 
-    for(var i=0;i<aBtn.length;i++){
-        aBtn[i].index=i;
-        aBtn[i].onclick = function(){
-            for(var j=0;j<aBtn.length;j++){
+                change(this.index);
+
+                // for(var j=0; j<aBtn.length; j++){
+                //     aBtn[j].className = "";
+                // }
+                // this.className =  "active";
+                // oImgBox.style.left = -this.index*750+"px";
+            }
+        }
+        oPrev.onclick = function(){
+            iNow++;
+            if(iNow > aBtn.length-1){
+                iNow = 0;
+            }
+            change(iNow); 
+        }
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow > aBtn.length-1){
+                iNow = 0;
+            }
+            change(iNow);
+        }
+        function change(index){
+            for(var j=0; j<aBtn.length; j++){
                 aBtn[j].className = "";
             }
-            this.className = "active"
-            oImgBox.style.left = -this.index*740+"px";
+            aBtn[index].className = "active";
+            oImgBox.style.left = -index*740+"px";  
         }
-    }
+
     </script>
 </body>
 </html>
