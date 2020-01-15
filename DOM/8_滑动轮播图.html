@@ -21,7 +21,12 @@
         position: relative;
     }
     .img-box {
-        width: 3700px;
+        width:3750px;
+            position: absolute;
+            left:0px;
+            top:0px;
+            /* 过度  */
+            transition: left 1s linear;
     }
     
     .img-box li{
@@ -50,6 +55,9 @@
         margin-right: 5px;
         font-size: 12px;
         cursor: pointer;
+    }
+    .btn-box .active{
+        background-color: red;
     }
     </style>
 
@@ -91,5 +99,23 @@
             <li id="next-btn">&gt;</li>
         </ul>
     </div>
+    <script>
+    var btnBox = document.getElementsByClassName("btn-box")[0];
+    var aBtn = btnBox.getElementsByTagName("li");
+    var oImgBox = document.getElementsByClassName("img-box")[0];
+    
+
+
+    for(var i=0;i<aBtn.length;i++){
+        aBtn[i].index=i;
+        aBtn[i].onclick = function(){
+            for(var j=0;j<aBtn.length;j++){
+                aBtn[j].className = "";
+            }
+            this.className = "active"
+            oImgBox.style.left = -this.index*740+"px";
+        }
+    }
+    </script>
 </body>
 </html>
