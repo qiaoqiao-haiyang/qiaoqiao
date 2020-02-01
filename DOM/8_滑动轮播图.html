@@ -126,16 +126,16 @@
             }
         }
         oPrev.onclick = function(){
-            iNow++;
-            if(iNow > aBtn.length-1){
-                iNow = 0;
-            }
-            change(iNow); 
+        iNow--;
+        if(iNow < 0){
+            iNow = aBtn.length-1
         }
+        change(iNow)
+    }
         oNext.onclick = function(){
-            iNow++;
+            iNow--;
             if(iNow > aBtn.length-1){
-                iNow = 0;
+                iNow = aBtn.length-1;
             }
             change(iNow);
         }
