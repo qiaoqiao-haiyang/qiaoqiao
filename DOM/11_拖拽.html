@@ -5,34 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
+<style>
     *{
         margin: 0;
         padding: 0;
+
     }
-    #div1{
-        background:red;
-        width: 200px;
-        height: 200px;
-        position:absolute;
-    }
-    
-    </style>
+#div1{
+    width: 200px;
+    height: 200px;
+    background:red;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+}
+</style>
+
 </head>
 <body>
-    <div id = "div1"></div>
+    <div id="div1"></div>
 
-<script>
-var oDiv = document.getElementById("div1")
-oDiv.onmousedown = function(e){
-    e = e|| window.event;
-    oDiv.style.left = e.clientX +"px";
-    oDiv.style.top = e.clientY +"px";
-}
+    <script>
+    var oDiv = document.getElementById("div1");
+    oDiv.onpointerdown = function(e){//鼠标按下
+    e= e||window.event;
+    var xDis = e.clientX - oDiv.offsetLeft;
+    var yDis = e.clientY - oDiv.offsetTop;
+    console.log(xDis);
 
-//console.log(e.clientX,e.clientY)获取鼠标点击的坐标
 
-</script>
+
+        document.onmousemove = function(e){
+            oDiv.style.left = e.clientX - xDis + "px"
+            oDiv.style.top = e.clientY - yDis + "px"
+             
+             if(oDiv.offsetLeft<0){
+                 oDiv.style.left = 0;
+             }
+             if(oDiv.offsetTop<0){
+                oDiv.style.top = 0;
+             }
+             var xMax = document.documentElement.clientWidth - oDiv.offsetWidth;
+             var yMax = document.documentElement.clientHeight - oDiv.offsetHeight;
+             if(oDiv.offsetLeft > xMax){
+                oDiv.style.left = xMax +"px";
+             }
+             if(oDiv.offsetTop>yMax){
+                oDiv.style.top = yMax +"px";
+             }
+             
+        }
+    }
+
+
+    oDiv.onmouseup = function(){
+        document.onmousemove = null;
+    }
+    </script>
+
 
 </body>
 </html>

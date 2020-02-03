@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        哈哈哈
+    </div>
+<script>
+    var oDiv = document.getElementById("div1");
+
+    oDiv.onclick = function(){
+        setTimeout(function(){
+            console.log(this.innerHTML)
+        },1000)
+    }
+
+    /*
+        改变this指向
+        call()  第一个参数this  后边1，2，3参数依次写
+        apply() 第一个参数this 后边按[1,2,3]放到数组里
+        bind()  第一个参数this 后边1，2，3参数依次写  只改变this指向 不调用
+    */
+// var  obj = {
+//     name:'zs'
+
+// }
+// function fn (x){
+//     console.log(this,x)
+// }
+// fn();
+// fn.call(obj,'11111');
+// fn.apply(obj,['111'])
+// fn.bidn(obj,111)();
+
+
+
+</script>
+</body>
+</html>

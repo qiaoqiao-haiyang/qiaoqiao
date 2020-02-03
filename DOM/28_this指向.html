@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: #ff0000;
+    }
+    #div2{
+        width:100px;
+        height: 100px;
+        background: #00FF00;
+    }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+    <!--this 的使用中  触发谁的事件， this就是谁 
+        4,
+     -->
+    
+    <script>
+    var oDiv = document.getElementById("div1");
+
+
+    oDiv.onclick = function (){
+        setTimeout(function(){
+            console.log(this)
+        },1000)
+       // console.log (this)//对当前对象的引用
+    }
+    
+    // setInterval(function(){
+    //     console.log(this)
+    // },1000)
+
+
+
+    function a (){
+        console.log(this)
+    }
+    a();
+
+
+    var obj = {
+        name :'zxs',
+        age :'20',
+        eat:function(){
+            console.log(this.name+"正在吃")
+        }
+    }
+        obj.eat();  
+    </script>
+</body>
+</html>
