@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+    div{
+        -webkit-transform:5px;
+        -moz-transform:5px;
+        -ms-transform:5px;
+        -o-transform:5px;
+        transform:5px;
+
+    }
+    /* 
+    *
+    E
+    E#id id选择器
+    E.class  class选择器
+    E F   后代选择器
+    E>F   子代选择器
+    E+F   下一个兄弟选择器
+    E~F   选择E元素后面的所有兄弟元素F，元素E与F必须同属一个父级。
+    */
+    /* div[id = "div1"]{
+        background :red;
+    } */
+    /* li:first-child{
+        color:red;
+    }
+    li:last-child{
+        color:pink;
+    } */
+    li:nth-child(2n){
+        background:red
+
+    }
+    </style>
+</head>
+<body>
+    <div id="div1">111</div>
+    <div id="div2">11111</div>
+    <div>2222</div>
+
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+
+    </ul>
+</body>
+</html>

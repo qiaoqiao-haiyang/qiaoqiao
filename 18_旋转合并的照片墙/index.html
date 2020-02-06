@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background: url(img/bg.jpg);
+    }
+    .item{
+        width: 125pa;
+        height: 125px;
+        border: 5px solid #fff;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+
+    </div>
+
+    <script>
+        var oContainer = document.getElementById("container")
+        var count = 0;
+        //动态生成48张图片   等待48张图片都加载完再继续执行loadSuccess
+        //循环  加载24张图片
+        for(var i=0;i<24;i++){
+            var oImg = new Image()
+            //等oImg加载完成执行function事件处理函数
+            oImg.onload = function(){
+                //48个图片加载完在执行  loadSuccess
+                count++;
+                if(count ==48){
+                    loadSuccess();
+                }
+            }
+            oImg.src ="img/thumbs/"+(i+1)+".jpg";
+        }
+        //循环加载24个大图
+        for(var i=0;i<24;i++){
+            var oImg = new Image();
+            oImg.onload = function(){
+                //48个图片加载完在执行  loadSuccess
+                count++;
+                if(count == 48){
+                    loadSuccess();
+                }
+            }
+            oImg.src="img/"+(i+1)+".jpg";
+        }
+        function loadSuccess(){
+            var index = 0;
+            for(var i=0; i<4; i++){ //行
+                for(var j=0; j<6; j++){  //列
+            var oDiv = document.createElement("div")
+            oDiv.className = 'item';
+            index++;
+            oDiv.style.background = "url(img/thumbs/"+(index)+".jpg) 0 0 no-repeat";
+            oDiv.row = i;
+            oDiv.col = j;
+            oContainer.appendChild(oDiv);
+                }
+            }
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

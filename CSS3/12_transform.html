@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transform : rotate(30deg);
+            /* 2D旋转 */
+            transform : rotate(-30deg);
+            /* 3D旋转，X水平 Y垂直Z垂直屏幕 */
+            /* transform :rotateY(40deg); */
+            /* 顺时针方向走40deg */
+            /* transform:rotateZ(40deg) */
+
+            /* transform:translateY(100px) */
+            transform:scale(0.5);
+        }
+        #div0{
+            margin: 50px auto;
+            width: 200px;
+            height: 200px;
+            border: 1px dashed#000;
+            perspective: 800px;;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div0"></div>
+</body>
+</html>
