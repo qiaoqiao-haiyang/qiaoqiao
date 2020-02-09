@@ -6,18 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    body{
-        background: url(img/bg.jpg);
-    }
-    .item{
-        width: 125pa;
-        height: 125px;
-        border: 5px solid #fff;
-    }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(img/bg.jpg);
+        }
+        .item{
+            width: 125px;
+            height: 125px;
+            border: 5px solid #fff;
+            position:absolute;
+            left:-135px;
+            top:-135px;
+            transition:all 1.5s ease;
+            
+        }
+        .bigImg{
+            width: 125px;
+            height: 125px;
+            background-color: #ff0000;
+            display: none;
+        }
+        #next{
+            position: absolute;
+            right:0px;
+            top:50%;
+            transform:translateY(-50%);
+            width: 40px;
+            height: 80px;
+            border-radius: 5px 0 0 5px;
+            text-align: center;
+            line-height:80px;
+            background-color: #fff;
+
+        }
     </style>
 </head>
 <body>
@@ -25,29 +49,34 @@
 
 
     </div>
+    <div id="next">
+        &gt;
+    </div>
 
     <script>
-        var oContainer = document.getElementById("container")
-        var count = 0;
+       var oContainer = document.getElementById('container');
+        var count= 0;
+        var flag = true;
         //动态生成48张图片   等待48张图片都加载完再继续执行loadSuccess
         //循环  加载24张图片
-        for(var i=0;i<24;i++){
-            var oImg = new Image()
-            //等oImg加载完成执行function事件处理函数
+        for(var i=0; i<24; i++){
+            var oImg = new Image();
+            // 等oImg 加载完成 执行function事件处理函数
             oImg.onload = function(){
-                //48个图片加载完在执行  loadSuccess
+                // 48个图都加载完 再执行  loadSuccess();
                 count++;
-                if(count ==48){
+                if(count == 48){
                     loadSuccess();
                 }
             }
-            oImg.src ="img/thumbs/"+(i+1)+".jpg";
+            oImg.src="img/thumbs/"+(i+1)+".jpg";
+           
         }
         //循环加载24个大图
-        for(var i=0;i<24;i++){
+        for(var i=0; i<24; i++){
             var oImg = new Image();
             oImg.onload = function(){
-                //48个图片加载完在执行  loadSuccess
+                // 48个图都加载完 再执行  loadSuccess();
                 count++;
                 if(count == 48){
                     loadSuccess();
@@ -55,19 +84,65 @@
             }
             oImg.src="img/"+(i+1)+".jpg";
         }
+
         function loadSuccess(){
+            // 生成24个装图片的div 插入到页面中
             var index = 0;
             for(var i=0; i<4; i++){ //行
                 for(var j=0; j<6; j++){  //列
-            var oDiv = document.createElement("div")
-            oDiv.className = 'item';
-            index++;
-            oDiv.style.background = "url(img/thumbs/"+(index)+".jpg) 0 0 no-repeat";
-            oDiv.row = i;
-            oDiv.col = j;
-            oContainer.appendChild(oDiv);
+                    var oDiv = document.createElement('div');
+                    oDiv.className = "item";
+                    index++;
+                    oDiv.style.background = "url(img/thumbs/"+(index)+".jpg) 0 0 no-repeat";
+                    oDiv.onclick = fn;
+                    oDiv.innerHTML = "<span class='bigImg'></span>";
+                    oDiv.idx = index-1;
+                    //每个div上记录它的行和列
+                    oDiv.row = i; 
+                    oDiv.col = j;
+                    oContainer.appendChild(oDiv);
                 }
             }
+            var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+            var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+            var spaceX = (screenWidth - 135*6)/7; //水平空
+            var spaceY = (screenHeight- 135*4)/5 ;//垂直的空
+            var aDiv = oContainer.getElementsByTagName('div');
+            var divWidth =  aDiv[0].offsetWidth;
+            var divHeight =  aDiv[0].offsetHeight;
+            for(var i=0; i<aDiv.length; i++){
+                //设置延迟时间
+                aDiv[i].style.transitionDelay = (23-i)*100 +"ms";
+                var col = aDiv[i].col;
+                var row = aDiv[i].row;
+                aDiv[i].style.left = (col+1)*spaceX  + col*divWidth +"px";
+                aDiv[i].style.top = (row +1)*spaceY + row*divHeight +"px";
+                // 随机旋转-20 20 deg
+                aDiv[i].style.transform = "rotate("+(Math.random()*40-20) + "deg)";
+            }
+            var iLeft = (screenWidth-6*127)/2;
+            var iTop = (screenHeight - 4*127)/2;
+            //点击事件处理函数   点击div ->所有div位置重新变化
+            function fn(){
+                for( var j=0;j<aDiv.length;j++){
+                    var oDiv = aDiv[j];
+                    var oSpan = oDiv.getElementsByTagName('span')[0];
+                    oDiv.style.transitionDelay = "0ms";
+                    var col = aDiv[j].col;
+                    var row = aDiv[j].row;
+                    //div的宽度127  125  +左右各一像素的边框
+                    oDiv.style.left = iLeft + col*127 + "px";
+                    oDiv.style.top = iTop+row*127 +"px";
+                    oDiv.style.transform = "rotate(0deg)";
+                    oDiv.style.borderWidth = "1px"
+                    oSpan.style.display = "block";
+                    //如果能知道div的索引 -> 我要显示的那张大图
+                    oSpan.style.background = "url(img/"+(this.idx+1)+".jpg) "+ -col*125 +"px "+ -row*125+"px";
+                 }
+            }
+
+
+
         }
     
     

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        window.onload = function(){//等待资源加载完再执行
+            console.log(111)
+            var oDiv=document.getElementById('div1');
+            oDiv.style.background = 'red';
+        }
+
+        
+
+
+
+        //文档就绪函数->等待页面结构加载完再执行   不会等资源
+        $(document).ready(function(){//简写成$(function(){})
+            console.log(222)
+            var $div = $('#div1')
+            $div.css("background",'red')
+        })
+        
+        
+
+    </script>
+</head>
+<body>
+    <div id="div1">aaaaa</div>
+    
+
+</body>
+</html>
