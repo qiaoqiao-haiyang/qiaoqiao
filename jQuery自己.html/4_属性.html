@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "div1" class = 'b'>aaa</div>
+    <div id="div2">2222222222222</div>
+    <input type="text" value='aaa'>
+    <script src = "jquery-1.12.4.js"></script>
+    <script>
+        // $("#div1").attr("class","a")
+        console.log( $('#div1').attr('class') );
+        // $("input").attr("value","hehe");
+        $("input").val('fjsaklhfjasheahsd');
+
+
+        // $("#div1").css("background","red")
+        $("#div1").css({
+            background:'red',
+            border:"1px solid #000",
+            width:"100px"
+        })
+
+        $("#div2").addClass("bb");
+
+        $("#div2").removeClass('aa');
+
+
+        $("#div2").height(200);
+
+        console.log($("li").height()) //返回第一个元素的height
+
+
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

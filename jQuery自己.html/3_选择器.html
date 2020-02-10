@@ -6,17 +6,41 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="aa">aaa</div>
+    <!-- <div class="aa">aaa</div>
     <div class="aa">heheh</div>
     <ul>
         <li>aa</li>
-        <li>bb</li>
-    </ul>
+        <li id = "li2">bb</li>
+        <li>cc</li>
+        <li>dd</li> -->
+
+
+        <ul class = "nav">
+            <li>List 1, item 1</li>
+            <li>List 1, item 2</li>
+            <li>List 1, item 3</li>
+        </ul>
+        <ul class = "nav">
+            <li>List 2, item 1</li>
+            <li>List 2, item 2</li>
+            <li>List 2, item 3</li>
+        </ul>
+    </ul> -->
     <script src = "jquery-1.12.4.js"></script>
 
     <script>
-        $(".aa").css("background",'green');
-        $("li").css("background",'red');
+        // $(".aa").css("background",'green');
+
+        // $("li").css("background",'red');
+
+        // $("#li2~ li")
+
+        // $("ul li:nth-child(2)").css("background",'pink')
+
+        // $("ul.nav li:eq(1)").css("background",'purple')
+
+        $("ul.nav li:even").css("background","orange")
+        $("ul.nav li:odd").css("background","yellow")
     </script>
 </body>
 </html>
