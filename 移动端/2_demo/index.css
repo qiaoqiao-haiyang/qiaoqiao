@@ -21,7 +21,7 @@ img{
     display: none;
 }
 
-@media screen and (max-width:960){
+@media screen and (max-width:960px){
     h3{
         width:100%;
     }
@@ -35,7 +35,7 @@ img{
         display: block;
     } 
 }
-@media screen and(max-width:480){
+@media screen and(max-width:480px){
     .img-big ,.img-960{
         display: none;
     }

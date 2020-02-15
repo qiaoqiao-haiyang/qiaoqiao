@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:.24rem;
+    color: #333;
+}
+header{
+    display: flex;
+    height: 1.01rem;
+    background: #ffc000;
+}
+.header-icon{
+    display: block;
+    width: 0.98rem;
+    text-align: center;
+    line-height: 1.01rem;
+    background: url(https://p0.meituan.net/travelcube/641521461179df7cfb88738dd1ea11ec1031.png)0.3rem 0.3rem no-repeat;
+    background-size: 0.48rem 0.48rem;
+}
+.header-city{
+    width:1.8rem;
+    color: #222222;
+    font-size: .28rem;
+    text-align:center;
+    line-height:1.01rem;
+    font-family: PingFangSC-Medium; 
+}
+.header-search{
+    width: 3.62rem;
+    height: 0.64rem;
+    opacity: 0.9;
+    /* background: #ffffff; */
+    border-radius:0.1rem;
+    margin-top: 0.2rem;
+    line-height: 0.64rem;
+    text-decoration: none;
+    color:#999999;
+    /* text-indent:0.3rem; */
+    padding-left:0.35rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background:#ffffff url(image/99c29829cf1b85d5cdbc76a1bd0b7329814.png) 0 0.18rem no-repeat;
+    background-size: 0.28rem 0.28rem;
+}
+.download{
+    display:  flex;
+    background-color: #000000;
+    padding:.16rem 0.3rem;
+}
+.download-logo{
+    display: block;
+    width: 0.72rem;
+    height: 0.72rem;
+    margin-right: 0.2rem;
+}
+.download-txt{
+    color: #fff;
+    flex:1;
+}
+.download-btn{
+    width: 1.1rem;
+    height: 0.6rem;
+    border-radius: 0.14rem;
+    background-color: #ffc000;
+    text-align: center;
+    line-height: 0.6rem;
+    color: black;
+    text-decoration: none;
+}
+.list{
+    display:flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #DDD8CE;
+    background: #fff;
+}
+.list li{
+    width: 20%;
+    height: 1.62rem;
+    padding: 0.2rem 0;
+    box-sizing: border-box;/*  */
+    /* background: brown; */
+    text-align: center;
+}
+.list span{
+    width: .8rem;
+    height: .8rem;
+    border-radius: .8rem;
+
+    display:block ;
+    margin:0 auto;
+    line-height: .8rem;
+    color:#fff;
+    font-size:0.34rem;
+    font-weight:900;
+}
+.list span.list1{
+    background: #fd9d21;
+}
+.list span.list2{
+    background: #ff6767;
+}
+.list span.list3{
+    background: #8a90fa;
+}
+.list p{
+    color: #666;
+    margin-top:0.14rem;
+}
+.like-box{
+    margin-top: 0.12rem;
+    background: #fff;
+    border-top:1px solid #DDD8CE;
+    padding-left:0.2rem;
+}
+.like-title{
+    font-size: .34rem;
+    color: #333;
+    height:0.83rem;
+    line-height:0.83rem;
+    font-weight: normal;
+}
+.like-list-box li{
+    border-top: 1px solid #DDD8CE;
+}
+.like-list{
+    display:flex;
+    color: #666;
+    text-decoration: none;
+    padding: 0.28rem 0.2rem 0.28rem;
+}
+.like-list img{
+    width: 1.8rem;
+    margin-right:0.2rem;
+}
+.like-info {
+    flex:1;
+}
+.info-title{
+    font-size:0.3rem;
+    color:#333;
+    margin-bottom: 0.12rem;
+}
+.info-desc{
+    overflow: hidden;
+    height: 0.68rem;
+}
+.info-price{
+    font-size:.36rem;
+    color:#f60
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <!-- 闭包外层函数嵌套内层函数，内层函数引用外层函数中间的局部变量
+    这样就使得外层韩式的变量不能释放一直存在内存中 -->
+    <script>
+        var aLi = document.getElementsByTagName("li")
+        // for(var i=0;i<aLi.length;i++){
+        //     (function (i){
+        //         aLi[i].onclick = function (){
+        //             console.log(i)
+        //         }
+        //     })(i)
+        // }
+
+
+
+
+
+
+
+        // for(let i=0;i<aLi.length;i++){
+            // aLi[i].onclick = function(){
+                // console.log(i)
+            // }
+        // }
+
+
+        function a(){
+            var x = 10;
+            // console.log(x);
+            return function(){
+                console.log(x+5);
+            }
+        }
+        var b=a();
+        b()
+        
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
