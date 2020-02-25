@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <button @click="fn">click</button>
+        <button @click ="des">destory</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm =new Vue({
+            el:'#app',
+            data:{
+                msg:"haha"
+            },
+            //组件实例刚被创建 组件属性计算之前 如data属性
+            beforCreate(){
+                // console.log(this.msg)
+                console.log(this.$el,this.$data);
+            },
+            created(){
+                console.log(this.$el,this.$data);
+            },
+            beforeMount(){
+                console.log(this.$el,this.$data);
+            },
+            mounted(){
+                console.log(this.$el,this.$data);
+            },
+            beforeUpdate(){
+                console.log(document.getElementById("app").innerHTML,this.$data);
+                console.log("组件更新之后");
+            },
+            updated(){
+                console.log(document.getElementById("app").innerHTML,this.$data);
+                console.log("组件更新之后");
+            },
+            beforeDestroy(){
+                console.log('beforeDestory')
+            }, 
+            destroyed(){
+                console.log('destory')
+            },
+            methods:{
+                fn(){
+                    this.msg = "hehehe";
+                },
+                des(){
+                    vm.$destroy();
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>
