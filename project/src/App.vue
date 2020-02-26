@@ -1,18 +1,26 @@
 <template>
   <div id="app">
-        <common-header></common-header>
-          <common-footer></common-footer>
+      <!-- <common-header></common-header> -->
+      <!-- <home></home> -->
+      <!-- <common-footer></common-footer> -->
+
+      <router-link to="/home">首页</router-link> | 
+      <router-link to="/detail">详情页</router-link> | 
+      <router-link to="/test">测试页</router-link> |
+      <!--占位  -->
+      <router-view/>
   </div>
 </template>
-
 <script>
-  //1，import引入 2 components中声明
-    import CommonHeader from './commponents/CommonHeader';
-    import CommonFooter from './commponents/CommonFooter';
+    // 1 import 引入 2 components中声明
+    import CommonHeader from './components/CommonHeader';
+    import CommonFooter from './components/CommonFooter';
+    import Home from './views/Home'
     export default {
         components:{
           CommonHeader,
-          CommonFooter
+          CommonFooter,
+          Home
         }
     }
 </script>
@@ -22,7 +30,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
 }
 
