@@ -1,6 +1,18 @@
 <template>
     <div>
         我是详情页
+        <!-- {{$route.params.id}}
+        {{$route.params.name}} -->
+
+
+<!--         
+         {{$route.query.id}}
+        {{$route.query.name}} -->
+
+
+        {{$route.params.id}}
+        {{$route.params.name}}
+        
     </div>
 </template>
 
