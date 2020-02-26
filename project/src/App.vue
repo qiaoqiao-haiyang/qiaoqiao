@@ -1,12 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+        <common-header></common-header>
+          <common-footer></common-footer>
   </div>
 </template>
+
+<script>
+  //1，import引入 2 components中声明
+    import CommonHeader from './commponents/CommonHeader';
+    import CommonFooter from './commponents/CommonFooter';
+    export default {
+        components:{
+          CommonHeader,
+          CommonFooter
+        }
+    }
+</script>
 
 <style lang="scss">
 #app {
