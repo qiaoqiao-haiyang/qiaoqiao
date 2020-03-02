@@ -4,14 +4,21 @@
       <!-- <home></home> -->
       <!-- <common-footer></common-footer> -->
 
+      <router-link to="/home">首页</router-link> |
       <router-link to="/home">首页</router-link> | 
       <!-- <router-link to="/detail">详情页</router-link> |  -->
       <!-- <router-link :to="{name:'detail',params:{id:25,name:'xx'}}">详情页</router-link> |  -->
-      <!-- <router-link :to="{path:'detail',query:{id:25,name:'xx'}}">详情页</router-link> |  -->
-      <router-link to="/detail/25/xx">详情页</router-link> | 
-      <router-link to="/test">测试页</router-link> |
+      <router-link :to="{path:'detail',query:{id:25,name:'xx'}}">详情页</router-link> | 
+      <!-- <router-link to="/detail/25/xx">详情页</router-link> |  -->
+      <router-link to="/abc">abc</router-link> |
+      <router-link to="/test1">test1</router-link> |
+      <button @click="fn">click</button>
       <!--占位  -->
-      <router-view/>
+      <transition name='fade'>
+          <router-view/>
+      </transition>
+
+
   </div>
 </template>
 <script>
@@ -20,6 +27,19 @@
     import CommonFooter from './components/CommonFooter';
     import Home from './views/Home'
     export default {
+      data(){
+        return {
+
+        }
+      },
+      methods:{
+        fn(){
+          // this.$router.push('/home');
+          // this.$router.push({path:'detail',query:{id:25,name:'xx'}});
+          this.$router.go(-1)//后退一步相当于history.back();
+          this.$router.go(1)//前进一步 相当于history.forward();
+        }
+      },
         components:{
           CommonHeader,
           CommonFooter,
@@ -48,5 +68,25 @@
       color: #42b983;
     }
   }
-}
+}.fade-enter{
+      // opacity: 0;//透明度
+      transform: translate(100%)
+    }
+    .fade-enter-active{
+      // transition:opacity 1s ease;
+      transition:transform 1s ease;
+    }
+    .fade-enter-to{
+      // opacity: 1;
+       transform: translate()
+    }
+    .fade-leave{
+      opacity: 1;
+    }
+    .fade-leave-active{
+      transition: opacity 1s linear;
+    }
+    .fade-leave-to{
+      opacity: 0;
+    }
 </style>

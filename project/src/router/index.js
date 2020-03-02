@@ -3,7 +3,9 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Detail from './../views/Detail.vue';
 import Test from './../views/Test.vue';
-import A from './../views/A.vue'
+import A from './../views/A.vue';
+import Error from './../views/Error.vue';
+import Test1 from './../views/Test1.vue'
 
 
 Vue.use(VueRouter);
@@ -19,14 +21,24 @@ const routes = [
       }
     ]
   },{
-    path:"/detail/:id/:name",
+    path:"/detail",
     name:"detail",
-    component:Detail
+    component:Detail,
+    
   },{
     path:"/test",
-    component:Test
+    component:Test,
+    alias:'/abc'
+  },{
+    path:"/",
+    redirect:'/home',
+  },{
+    path:'*',
+    component:Error
+  },{
+    path:"/test1",
+    component:Test1,
   }
-  
   
 ];
 
